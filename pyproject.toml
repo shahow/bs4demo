@@ -7,7 +7,10 @@ authors = [
     { name = "shahow", email = "shahow11@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "requests>=2.34.2",
+]
 
 [project.scripts]
 bs4demo = "bs4demo:main"
