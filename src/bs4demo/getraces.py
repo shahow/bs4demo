@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import re
+import gdown
 
 headers = {
     "User-Agent": (
@@ -21,7 +22,11 @@ for a in allb:
     detailsoup = BeautifulSoup(detailweb.text, "html.parser") 
     #print(detailweb.text)
     innera = detailsoup.find_all('iframe')
+    h2=detailsoup.find('h2',class_="title")
+    filename = h2.text.replace('/','')
+    print(h2.text)
     for ia in innera:
         print("------------------------------")
         print(ia.get('src'))
+        gdown.download(ia.get('src'), r"D:\races\{0}.pdf".format(filename), quiet=False)
     #print(detailweb.text)  # 取得所有 a 標籤
